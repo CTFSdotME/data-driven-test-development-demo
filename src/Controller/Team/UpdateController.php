@@ -19,6 +19,7 @@ class UpdateController extends Controller implements TokenAuthenticatedControlle
         }
 
         $em = $this->getDoctrine()->getManager();
+
         $team = $em->getRepository(Team::class)->find($request->get('id'));
 
         if (!$team) {

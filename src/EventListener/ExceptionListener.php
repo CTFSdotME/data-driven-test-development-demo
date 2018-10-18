@@ -20,7 +20,7 @@ class ExceptionListener
 
         if ($exception instanceof BadRequestHttpException) {
             $content = json_encode([
-                'status' => $exception->getStatusCode(),
+                'status' => $exception->getCode(),
                 'message' => 'Bad Request'
             ]);
         } elseif ($exception instanceof NotFoundHttpException) {
@@ -35,7 +35,7 @@ class ExceptionListener
             ]);
         } else {
             $content = json_encode([
-                'status' => $exception->getStatusCode(),
+                'status' => $exception->getCode(),
                 'message' => 'Internal Server Error'
             ]);
             $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
